@@ -42,38 +42,33 @@ ul, ol	{ list-style-type: none }
 <script type="text/javascript">
 // DOM Level 1 Event 처리 : element의 event attribute을 사용하는 방식
 // 2) JavaScript Code(DOM API) 로만 작성하는 방식 
-function f()
-var liSelected = null;
-var onTabClicked = function(){
-	
-	var li = this;
-	
+let onTabClicked = function(){
 	// unselect
-	if(liSelected != null){
-		liSelected.className = "";
-	}
+	let liSelecteds = document.getElementsByClassName('selected');
+	(liSelecteds.length == 1) && (liSelecteds[0].className = '');	
+	
 	// select
-	li.className = "selected";
-	liSelected = li;
+	this.className = "selected";
 }
 
 window.onload = function(){
-	document.getElementById("tab1").onclick = onTabClicked;
-	document.getElementById("tab2").onclick = onTabClicked;
-	document.getElementById("tab3").onclick = onTabClicked;
-	document.getElementById("tab4").onclick = onTabClicked;
-	document.getElementById("tab5").onclick = onTabClicked;
+	let divTabBox = document.getElementsByClassName('tab-box')[0];
+	let ulTabBox = divTabBox.childNodes[1];
+	let liTabs = ulTabBox.getElementsByTagName('li');
+	Array.prototype.forEach.call(liTabs, function(li){
+		li.onclick = onTabClicked;
+	});
 }
 </script>
 </head>
 <body>
 <div class="tab-box">
 	<ul>
-        <li id="tab1">메뉴 1</li>
-        <li id="tab2">메뉴 2</li>
-        <li id="tab3">메뉴 3</li>
-        <li id="tab4">메뉴 4</li>
-        <li id="tab5">메뉴 5</li>
+        <li>메뉴 1</li>
+        <li>메뉴 2</li>
+        <li>메뉴 3</li>
+        <li>메뉴 4</li>
+        <li>메뉴 5</li>
     </ul>
     <div>
     	탭뷰입니다.
