@@ -42,8 +42,8 @@ ul, ol	{ list-style-type: none }
 <script type="text/javascript">
 // DOM Level 1 Event 처리 : element의 event attribute을 사용하는 방식
 // 1) HTML Tag에 이벤트 핸들러를 적용하는 방식 
-var liSelected = null;
-var onTabClicked = function(li){
+window.liSelected = null;
+window.onTabClicked = function(li){
 	// unselect
 	if(liSelected != null){
 		liSelected.className = "";
