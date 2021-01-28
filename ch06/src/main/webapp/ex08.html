@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang='ko'>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+<script type="text/javascript">
+window.addEventListener('load', function(){
+	var imgEl = document.createElement('img');
+	
+	// 표준 + 비표준 속성을 접근하기 위해서는 setAttribute 함수를 사용한다.
+	imgEl.setAttribute('src','https://doolymuseum.or.kr/html/images/sub0104_01.png');
+	imgEl.setAttribute('width',400);
+	imgEl.setAttribute('alt','둘리');
+	imgEl.setAttribute('title', '둘리');
+	imgEl.setAttribute('data-name', '둘리');
+	
+	setTimeout(function(){
+		document.body.appendChild(imgEl);
+	}, 2000)
+});
+</script>
+</head>
+<body>
+	<h1>HTMLElement 속성 조작하기</h1>
+</body>
+</html>
