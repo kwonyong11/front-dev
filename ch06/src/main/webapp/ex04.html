@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+// 속성확인
+var s = '';
+for(property in navigator){
+	s += (property + ":" + navigator[property] + "\n");
+}
+console.log(s);
+
+BrowserDetect.init();
+
+console.log(BrowserDetect.browser);
+console.log(BrowserDetect.version);
+console.log(BrowserDetect.OS);
+</script>
+</head>
+<body>
+	<h1>DOM(Browser Object Model) - window, location, screen, navigator</h1>
+	<h2>4. navigator 객체</h2>
+</body>
+</html>
