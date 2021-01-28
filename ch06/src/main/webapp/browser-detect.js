@@ -46,7 +46,7 @@ var BrowserDetect = {
 				subString: "Firefox",
 				identity: "Firefox"
 			},
-			{		// for newer Netscapes (6+)
+			{	// for newer Netscapes (6+)
 				string: navigator.userAgent,
 				subString: "Netscape",
 				identity: "Netscape"
