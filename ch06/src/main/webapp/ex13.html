@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+// 이벤트 기본 동작 막기
+// form : validation
+// a : 버튼이나 메뉴로 사용(click 이번트) + Ajax 통신(자바스크립트 코드가 실행) 인 경우
+window.addEventListener('load', function(){
+	let form = document.getElementById('form-login');
+	
+	// 방법1 (Model2)
+	form.addEventListener('submit', function(){
+		event.preventDefault();
+		
+		let inputEmail = document.getElementById('email');
+		if(inputEmail.value == ''){
+			alert('이메일이 비어 있습니다.');
+			inputEmail.focus();
+			return;
+		}
+		
+		let inputPassword = document.getElementById('password');
+		if(inputPassword.value == ''){
+			alert('비밀번호가 비어 있습니다.');
+			inputPassword.focus();
+			return;
+		}
+		
+		this.submit();
+	});
+	
+	// 방법2 (Model0)
+	/*
+	form.onsubmit = function(){
+		let inputEmail = document.getElementById('email');
+		if(inputEmail.value == ''){
+			alert('이메일이 비어 있습니다.');
+			inputEmail.focus();
+			return false;
+		}
+		
+		let inputPassword = document.getElementById('password');
+		if(inputPassword.value == ''){
+			alert('비밀번호가 비어 있습니다.');
+			inputPassword.focus();
+			return false;
+		}
+		
+		return true;
+	};
+	*/
+	
+});
+</script>
+</head>
+<body>
+	<h1>Event 기본동작 막기: &lt;form&gt;</h1>
+	<form id='form-login' method='post' action='/user/auth'>
+		<label>이메일</label>
+		<br/>
+		<input type='text' name='email' id='email'/>
+		<br/>
+		<br/>
+		
+		<label>비밀번호</label>
+		<br/>
+		<input type='password' name='email' id='password'/>
+		<br/>
+		<br/>
+		
+		<input type='submit' value='로그인' />
+	</form>
+</body>
+</html>

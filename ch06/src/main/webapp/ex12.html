@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+// 이벤트 기본 동작 막기
+// form : validation
+// a : 버튼이나 메뉴로 사용(click 이번트) + Ajax 통신(자바스크립트 코드가 실행) 인 경우
+window.addEventListener('load', function(){
+	let btn = document.getElementById('fetch-data');
+	btn.addEventListener('click', function(event){
+		event.preventDefault();
+		console.log('fetching data........');
+	});
+});
+</script>
+</head>
+<body>
+	<h1>Event 기본동작 막기: &lt;a&gt;</h1>
+	<a href='' id='fetch-data'>데이터 가져오기</a>
+</body>
+</html>
