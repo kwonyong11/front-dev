@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>sample1</title>
+<script type="text/javascript" src="jquery/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+//
+// test code
+//
+$(function(){
+	let $obj = $('.par');
+	
+	console.log($obj.length);								   // 2
+	console.log(typeof($obj) + ":" + ($obj instanceof Array)); // 배열이 아니라 유사배열		
+	console.log($obj[0]);									   // jQuery Object가 아니고 HTMLElement
+	console.log($obj.get(0));                                  // jQuery Object가 아니고 HTMLElement
+	
+	$obj.css('color', 'red');
+	$obj.click(function(){
+		// 이벤트 핸들러에서 this는 jQuery Object가 아니고 HTMLElement이다.
+		console.log('clicked:' + this);
+		
+		// let $obj = $(this);
+		// $obj.css('text-decoration', 'underline');
+		// $obj.text('클릭!');
+		
+		// jQuery Object의 모든 함수(예외: Traverse API)는 호출한 jQuery Object를 반환한다.
+		// function chain이 가능하다.
+		$(this)
+			.css('text-decoration', 'underline')
+			.text('클릭!');		
+	});
+});
+</script>
+</head>
+<body>
+	<h1>Simple jQuery 만들기</h1>
+	<p class='par'>문장1</p>
+	<p>문장2</p>
+	<p class='par'>문장3</p>
+	<p>문장4</p>
+</body>
+</html>

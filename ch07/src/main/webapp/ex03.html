@@ -15,7 +15,7 @@ let jQuery = function(selector){
 let _jQuery = function(elements){
 	this.length = elements.length;
 	for(let i = 0; i < elements.length; i++){
-		this[''+i] = elements[i];
+		this[i+""] = elements[i];
 	}
 }
 _jQuery.prototype.get = function(index){
