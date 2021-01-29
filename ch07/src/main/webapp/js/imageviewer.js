@@ -37,10 +37,33 @@ const ImageViewer = {
 			title: info.name
 		});
 	},
+	_consoleImageLog: function(){
+		let name = $(this).attr('alt');
+		console.log(name);
+	},
+	_slideImage: function(){
+		buttonName = $(this).text();
+	    $(this).text((buttonName == '슬라이드 시작' ? '슬라이드 중지' : '슬라이드 시작'));
+	    buttonName == '슬라이드 시작' && ImageViewer._startShow();
+	    buttonName == '슬라이드 중지' && ImageViewer._stopShow();
+	},
+	 _startShow: function() {
+         _this = this;
+         interval = setInterval(function() {
+         buttonName = $(this).text();
+         ImageViewer._changeImage();
+      }, 1000);
+   },
+   _stopShow: function() {
+      clearInterval(interval);
+   },
 	init: function(){
 		$(function(){
 			$('.image-viewer #btn-change').click(ImageViewer._changeImage);
-			
+			$('.image-viewer img')
+				.mousedown(ImageViewer._changeImage)
+				.dblclick(ImageViewer._consoleImageLog);
+			$('.image-viewer #btn-slideshow').click(ImageViewer._slideImage);
 			// 디폴트 이미지 선택하기
 			ImageViewer._changeImage();
 		});
