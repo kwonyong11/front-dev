@@ -43,7 +43,7 @@ const ImageViewer = {
 	},
 	_slideImage: function(){
 		buttonName = $(this).text();
-	    $(this).text((buttonName == '슬라이드 시작' ? '슬라이드 중지' : '슬라이드 시작'));
+	    $(this).text(buttonName == '슬라이드 시작' ? '슬라이드 중지' : '슬라이드 시작');
 	    buttonName == '슬라이드 시작' && ImageViewer._startShow();
 	    buttonName == '슬라이드 중지' && ImageViewer._stopShow();
 	},
