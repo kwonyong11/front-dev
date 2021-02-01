@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="jquery/jquery-3.5.1.js"></script>
+<script>
+$(function(){
+	$("button").click(function(){
+		$.ajax({
+			url: '/ch07/data.xml',
+			dataType: 'xml',
+			success: function(data){
+				$('item', data).each(function(){
+					let html = "";
+					html += ("<dt>" + $('title', this).text() + "</dt>");
+					html += ("<dd>" + $('description', this).text() + "</dd>");
+					
+					$('dl').append(html);
+				});
+			}
+		});
+	});
+})
+</script>
+</head>
+<body>
+	<button>xml 가져오기</button>
+	<dl></dl>
+</body>
+</html>
